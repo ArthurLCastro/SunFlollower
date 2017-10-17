@@ -3,4 +3,4 @@ Repositório destinado ao controle dos códigos do projeto "SunFlollower" refere
 
 Alunos: Arthur Castro; Henrique Martins; Luís Fernando
 
-Professores: Marcus Vinícius; Domingos Sávio
+Professores: Marcus Vinícius; Domingos Sávi
