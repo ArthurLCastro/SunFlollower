@@ -1,7 +1,7 @@
 /*programa do controlador principal  em desenvolvimento...
 *-implementação da leitura dos sensores e atuação através de servo motor em um eixo.
 *
-*
+*/
 #include<avr/io.h>
 #include<util/delay.h>
 
