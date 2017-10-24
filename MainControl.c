@@ -1,7 +1,3 @@
-/*programa do controlador principal  em desenvolvimento...
-*-implementação da leitura dos sensores e atuação através de servo motor em um eixo.
-*
-*/
 #include<avr/io.h>
 #include<util/delay.h>
 
@@ -14,26 +10,26 @@ int servo = 1200;
 
 int main(){
 	DDRB = 0x02;
-	DDRC = 0x00;
-	PORTC = 0xFF;
+	DDRD = 0x00;
+	PORTD = 0xF8;
 	TCCR1A |= 1<<WGM11 | 1<<COM1A1;
 	TCCR1B |= 1<<WGM12 | 1<<WGM13 | 1<<CS10;
 	ICR1 = 19999;
-	//OCR1A = 1200;
+	OCR1A = 1200;
 	while(1){
 	
-		
-			/*if(PINC==0x01){
+			/*somente esquerda: PIND = 0x08;
+			 *somente direita: PIND = 0x10;*/
+			if(PIND==0x08){
 				MoveEsquerda(servo);
 				_delay_ms(500);
-			}*/
-			if(PINC==0xE2){
+			}
+			else if(PIND==0x10){
 				MoveDireita(servo);
 				_delay_ms(500);
 			}
 			else{
-				MoveServo(servo);
-				_delay_ms(500);
+				continue;
 			}
 		
 	}
