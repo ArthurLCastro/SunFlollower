@@ -16,21 +16,24 @@ int main(){
 	TCCR1B |= 1<<WGM12 | 1<<WGM13 | 1<<CS10;
 	ICR1 = 19999;
 	OCR1A = 1200;
+	const uint8_t esquerda = 0x08;
+	const uint8_t direita = 0x20;
+	const uint8_t centro = 0x80;
 	while(1){
 	
-			/*somente esquerda: PIND = 0x08;
-			 *somente direita: PIND = 0x10;*/
-			if(PIND==0x08){
+		while((PIND & 0xF8)==centro){
+			if((PIND & 0xF8)==esquerda){
 				MoveEsquerda(servo);
-				_delay_ms(500);
+				_delay_ms(200);
 			}
-			else if(PIND==0x10){
+			else if((PIND & 0xF8)==direita){
 				MoveDireita(servo);
-				_delay_ms(500);
+				_delay_ms(200);
 			}
 			else{
 				continue;
 			}
+		}
 		
 	}
 	return 0;
@@ -39,12 +42,12 @@ void MoveServo(int pos){
 	OCR1A = pos;
 }
 void MoveEsquerda(int pos_para_esquerda){
-	pos_para_esquerda+=100;
+	pos_para_esquerda+=10;
 	servo = pos_para_esquerda;
 	MoveServo(servo);
 }
 void MoveDireita(int pos_para_direita){
-	pos_para_direita-=100;
+	pos_para_direita-=10;
 	servo = pos_para_direita;
 	MoveServo(servo);
 }
