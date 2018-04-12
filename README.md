@@ -28,7 +28,7 @@ leaomartinshenrique@gmail.com
 [GitHub - HMLeao](https://github.com/HMLeao)
 
 
-*Luís Fernando*
+*Luís Fernando Araújo Farias*
 </br>
 brksluis@gmail.com
 </br>
